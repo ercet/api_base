@@ -34,7 +34,7 @@ class HandleIndexRequested
         $job = new Index($event->getRequest()->all());
 
         // fire the job and absorb the results
-        // $event->setResults($job->dispatch());
-        $event->setResults($this->dispatch($job));
+        $results = $this->dispatchNow($job);
+        $event->setResults($results);
     }
 }
