@@ -15,8 +15,7 @@ class IndexTest extends BaseControllerTest
     public function setUp()
     {
         parent::setUp();
-        $this->setUrl('/user');
-        $this->setMethod('GET');
+        $this->setUrl('/api/user');
     }
 
     /**
@@ -26,18 +25,7 @@ class IndexTest extends BaseControllerTest
      */
     public function testExample()
     {
-        $this->assertTrue(true);
-        $this->assertTrue(true);
-        $this->assertTrue(true);
-        $this->assertTrue(true);
-        $this->assertTrue(true);
-        $this->assertTrue(true);
-        $this->assertTrue(true);
-
-        // $response = $this->call(
-        //     $this->getUrl(),
-        //     $this->getMethod()
-        // );
-        // $this->assertEquals(200, $response->status());
+        $response = $this->get($this->getUrl());
+        $response->assertStatus(200);
     }
 }
